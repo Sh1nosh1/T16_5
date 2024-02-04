@@ -20,7 +20,7 @@ namespace T16_5
             try
             {
                 //Task 1
-                Write("Enter number of visits: ");
+                /*Write("Enter number of visits: ");
                 int n = Convert.ToInt32(ReadLine());
                 WriteLine();
                 VisitCounter[] visitCounter = new VisitCounter[n];
@@ -53,6 +53,27 @@ namespace T16_5
                     if (time_1 < elem.Visit_date & time_2 > elem.Visit_date) { elem.Output(); }
                     else { WriteLine("None"); break; }
                     WriteLine();
+                }*/
+
+                //Task 2
+                Write("Enter the number of activation: ");
+                int n = Convert.ToInt32(ReadLine());
+                WriteLine();
+                Conditioner[] air_conditioner = new Conditioner[n];
+                for (int i = 0; i < air_conditioner.Length; i++)
+                {
+                    DateTime date_on = GetDate("date");
+                    DateTime time_on = GetDate("time");
+                    Write("Indicate temperature: ");
+                    int temperature = Convert.ToInt32(ReadLine());
+                    air_conditioner[i] = new Conditioner(date_on, time_on, temperature);
+                    WriteLine();
+                }
+                WriteLine("\nAll activations: \n");
+                foreach (var elem in air_conditioner) { elem.Output(); WriteLine(); }
+                foreach(var elem in air_conditioner)
+                {
+                    if (elem.Date_on > DateTime.Now & elem.Date_on < DateTime.Now.AddDays(1)) { WriteLine("\nTurns-on on tomorrow: \n"); elem.Output(); }
                 }
 
 
